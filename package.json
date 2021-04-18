@@ -1,11 +1,11 @@
 {
-  "name": "server",
+  "name": "sdr-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "node index",
-    "start": "nodemon index"
+    "serve": "node ./graphql/config/index",
+    "start": "nodemon ./graphql/config/index"
   },
   "keywords": [],
   "author": "",

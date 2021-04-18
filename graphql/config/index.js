@@ -1,15 +1,24 @@
 const { ApolloServer } = require("apollo-server");
 const mongoose = require('mongoose')
+const fs = require('fs');
 
 
-const { MONGODB } = require('./config')
+const { MONGODB } = require('../../config')
+const resolvers = require('../resolvers')
 
-const typeDefs = require('./graphql/typeDefs')
-const resolvers = require('./graphql/resolvers')
+
+const schema = fs.readFileSync(path.resolve('graphql/schema.graphql'), {
+  encoding: 'utf-8',
+});
+
+const typeDefs = gql`${schema}`;
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  context: async () => {
+
+  }
 })
 
 
